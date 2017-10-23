@@ -1,3 +1,13 @@
 body {
     background-image: url("../images/Pop-Culture-608x500.jpg");
 }
+
+.logo {
+	font-size: 40px;
+	color: red;
+}
+
+.pop-title {
+	font-size: 40px;
+	color: #E10000;
+}

@@ -1,28 +1,36 @@
 // alert("HELLO!")
 
 // Array of correct answers 
-var answers = ['3' , 'Friends', 'Stranger Things', 'X-Men: Apocalypse', 'Beyonce', 'Simone Biles', 'Rio, Brazil', 'Fifth Harmony', 'Captain Jack', 'Suicide Squad']
+var answers 		= ['3' , 'Friends', 'Stranger Things', 'X-Men: Apocalypse', 'Beyonce', 'Simone Biles', 'Rio, Brazil', 'Fifth Harmony', 'Captain Jack', 'Suicide Squad']
 
 
 
 //user answers arrays 
-var userAnswers = [];
+var userAnswers 	= [];
+
+// Scores 
+var correctCount 	= 0;
+var wrongCount 		= 0;
+var unassweredCount = 0;
+
+// time counter 
+var seconds 		= 120
 
 
 $(document).ready(function() {
 
-	// Intialize the game with hidden Divs
+	// start the game with hidden Divs
 	$("#game_container").hide();
 	$("#end_container").hide();
 
 
 	$("#start_button").on("click", function(){
 
-		// Hide the start Div from the user
+		// Hide the start div from the user
 		$("#start_container").hide();
 
 
-		// Show the Game Div
+		// Show the Game div
 		$("#game_container").show();
 
 		// timer();
@@ -30,10 +38,7 @@ $(document).ready(function() {
 
 	});
 
-
-	// time counter 
-var seconds = 120
-
+// ======================
 var timer = setInterval(function(){
 	seconds--;
   // console.log(seconds)
@@ -43,35 +48,41 @@ $("#timer-counter").html("Time Remaining: " + seconds);
 
 
 
+// TIMER WORKS IF YOU CONSOLE LOG - HOWEVER, IT DOESNT DISPLAY ON THE SCREEN
+// ======================
 
 
 
-//user answers arrays 
-var userAnswers = [];
-var numQuestions = 10;
-	for (var i = 0; i < numQuestions; i++) {
-	$("#submit").on("click", function(event) {
-			event.preventDefault();
-		var selValue = $('input[name=q'+(i+1)+']:checked').val();
-		// console.log(selValue);
-		userAnswers.push(selValue);
 
+// =====================
+// WHEN SUBMIT BUTTON IS CLICK IS SHOULD DISPLAY THE END_CONTAINER WHICH SHOWS ALL THE ASNWERED, UNANSWERED, AND TOTAL SCORE
+// If the user answered all questions before the timer runs out 
+$("#submit").on("click", function(){
 
-console.log(answers);
-	console.log(userAnswers);
-	});
-	
+	seconds = 0;
+	$("#game_container").hide();
+	$("#end_container").show();
 
-
-
-	};
 });
-// Variables
 
-// Functions 
+// The timer runs out before user can finish the game 
+if(seconds === -1){
 
-// Scores
 
-// change HTML to reflect changes 
+	timeUp();
 
-// main process on click
+
+	// hides the q&a div from user when the time runs out 
+	$("#game_container").hide();
+	console.log(hide);
+}
+
+
+// EACH QUESTION SHOULD BE CHECKED IF ITS CORRECT OR NOT
+// AT THE END OF THE GAME THE DIV WITH THE CORRECT ANSWERS, UNCORRECT ANSWERS, AND TOTAL SCORE SHOULD BE DISPLAYED 
+// THE GAME SHOULD RESTART AFTER EACH GAME - MAYBE ADD A RESTART BUTTON 
+
+
+
+});
+
