@@ -4,7 +4,7 @@
 Usage This app is a simple triva game. You have 120 seconds to answer ten questions. Your final score will br displayed when you hit the done button or when time runs out.
 
 Play the game here:
-https://reyadam.github.io/TriviaGame/
+https://rey-adam.github.io/TriviaGame/
 
 Goodluck!
 
